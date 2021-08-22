@@ -1,0 +1,54 @@
+.controls {
+  width: 50%;
+  margin: 100px auto;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+.micIco {
+  border: 1px solid grey;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 8px;
+  color: rgb(53, 53, 53);
+}
+.mic {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.vidIco {
+  border: 1px solid grey;
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 8px;
+  color: rgb(53, 53, 53);
+}
+.video {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.call {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input {
+  display: inline;
+}
+.callIco {
+  border-radius: 50%;
+  font-size: 3em;
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  background: rgb(59, 238, 59);
+  cursor: pointer;
+}
+.text {
+  padding: 1em;
+  margin-top: 20px;
+}

@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2em;
+}
+.title h1 {
+  font-weight: 600;
+}
+.title p {
+  color: rgb(97, 97, 97);
+  font-weight: 400;
+}
+.invite {
+  font-size: 1em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  color: #0072a0;
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+  box-shadow: 6px 6px 12px #e6e6e6, -6px -6px 12px #ffffff;
+  cursor: pointer;
+}
+.invite:focus {
+  background: #ffffff;
+  box-shadow: inset 6px 6px 12px #e6e6e6, inset -6px -6px 12px #ffffff;
+}
+.player {
+  border-radius: 20px;
+  margin-bottom: 20px;
+  /* width: 90%; */
+}
+.commonVideo {
+  /* width: 90%; */
+  border-radius: 20px;
+}
+
+.groupContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

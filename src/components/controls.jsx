@@ -3,7 +3,7 @@ import { Button, Input } from "antd";
 import { SocketContext } from "../SocketContext";
 import {
   BiMicrophone,
-  BiMicrophoneOff,
+  // BiMicrophoneOff,
   BiVideo,
   BiVideoOff,
   BiPhoneCall,
@@ -34,7 +34,11 @@ function Controls() {
         </div>
       </div>
       <div className={styles.video}>
-        <BiVideo className={styles.vidIco} onClick={() => handleClick()} />
+        {videoState.video ? (
+          <BiVideo className={styles.vidIco} onClick={() => handleClick()} />
+        ) : (
+          <BiVideoOff className={styles.vidIco} onClick={() => handleClick()} />
+        )}
         <div className={styles.text}>
           <span>Video</span>
           <p

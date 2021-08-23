@@ -7,11 +7,13 @@ function CallerNotification() {
 
   const [visible, setVisible] = useState(false);
 
-  const [playAudio, setPlayAudio] = useState(false);
   const audio = new Audio(ring);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const playRingtone = () => {
     audio.play();
   };
+
   const stopRingtone = () => {
     audio.pause();
   };
@@ -31,7 +33,7 @@ function CallerNotification() {
   useEffect(() => {
     setVisible(true);
     if (call.isReceivingCall && !callAccepted) playRingtone();
-  }, [call, callAccepted]);
+  }, [call, callAccepted, playRingtone]);
 
   return (
     <div>

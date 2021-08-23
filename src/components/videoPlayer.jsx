@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../SocketContext";
 import { FiEdit3 } from "react-icons/fi";
-import ModalInvite from "./modalInvite";
+
 import styles from "./videoplayer.module.css";
-import { Modal, Button, Space } from "antd";
+import { Modal } from "antd";
 import { FcInfo } from "react-icons/fc";
 import Notification from "./notification";
 
@@ -15,7 +15,6 @@ function VideoPlayer({ children, setEditName }) {
     myVideo,
     userVideo,
     callEnded,
-    call,
     me,
     stream,
   } = useContext(SocketContext);

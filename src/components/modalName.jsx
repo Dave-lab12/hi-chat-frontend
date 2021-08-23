@@ -16,7 +16,7 @@ function ModalName({ editName, setEditName }) {
       setEditName(false);
       setModal1Visible(true);
     }
-  }, [editName]);
+  }, [editName,setEditName]);
   console.log(editName);
   return (
     <div>

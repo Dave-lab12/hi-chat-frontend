@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../SocketContext";
 function Options({ children }) {
   const { me, callAccepted, name, setName, leaveCall, callUser, callEnded } =
@@ -11,9 +10,9 @@ function Options({ children }) {
       <>
         <h1>account info</h1>
         <input value={name} onChange={(e) => setName(e.target.value)} />
-        <CopyToClipboard text={me}>
-          <button>copy your id</button>
-        </CopyToClipboard>
+        {/* <CopyToClipboard text={me}> */}
+        <button>copy your id</button>
+        {/* </CopyToClipboard> */}
       </>
       <>
         <h1>make a call</h1>

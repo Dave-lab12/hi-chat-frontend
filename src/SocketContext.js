@@ -5,7 +5,7 @@ import Peer from "simple-peer";
 const SocketContext = createContext();
 
 const socket = io("https://hi-chat-backend.herokuapp.com/");
-//const socket = io("localhost:5000");
+// const socket = io("localhost:5000");
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -14,14 +14,14 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [call, setCall] = useState({});
   const [me, setMe] = useState("");
-
+  const [videoState, setVideoState] = useState({ video: true, audio: true });
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      .getUserMedia({ video: videoState.video, audio: videoState.audio })
       .then((currentStream) => {
         setStream(currentStream);
 
@@ -33,7 +33,7 @@ const ContextProvider = ({ children }) => {
     socket.on("callUser", ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-  }, []);
+  }, [videoState]);
 
   const answerCall = () => {
     setCallAccepted(true);
@@ -101,6 +101,8 @@ const ContextProvider = ({ children }) => {
         callUser,
         leaveCall,
         answerCall,
+        videoState,
+        setVideoState,
       }}
     >
       {children}

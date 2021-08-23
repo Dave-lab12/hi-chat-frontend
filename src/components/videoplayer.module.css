@@ -4,12 +4,15 @@
   align-items: center;
   padding: 2em;
 }
+.title {
+  display: flex;
+}
+.editNameIco {
+  margin: 5px;
+  cursor: pointer;
+}
 .title h1 {
   font-weight: 600;
-}
-.title p {
-  color: rgb(97, 97, 97);
-  font-weight: 400;
 }
 .invite {
   font-size: 1em;

@@ -10,23 +10,40 @@ import {
 } from "react-icons/bi";
 import styles from "./controls.module.css";
 function Controls() {
-  const { me, callAccepted, name, setName, leaveCall, callUser, callEnded } =
-    useContext(SocketContext);
+  const {
+    videoState,
+    setVideoState,
+    callAccepted,
+    leaveCall,
+    callUser,
+    callEnded,
+  } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
+  console.log(videoState);
+  const handleClick = () => {
+    setVideoState({ ...videoState, video: !videoState.video });
+  };
+  console.log("hi");
   return (
     <div className={styles.controls}>
       <div className={styles.mic}>
         <BiMicrophone className={styles.micIco} />
         <div className={styles.text}>
           <span>Microphone</span>
-          <p>on</p>
+          <p className={styles.inputText}>on</p>
         </div>
       </div>
       <div className={styles.video}>
-        <BiVideo className={styles.vidIco} />
+        <BiVideo className={styles.vidIco} onClick={() => handleClick()} />
         <div className={styles.text}>
           <span>Video</span>
-          <p>on</p>
+          <p
+            className={`${
+              videoState.video ? styles.inputText : styles.inputTextDanger
+            }`}
+          >
+            {videoState.video ? "on" : "off"}
+          </p>
         </div>
       </div>
       <div className={styles.call}>
@@ -54,14 +71,3 @@ function Controls() {
 }
 
 export default Controls;
-{
-  /* <>
-<h1>make a call</h1>
-<input value={idToCall} onChange={(e) => setIdToCall(e.target.value)} />
-{callAccepted && !callEnded ? (
-  <button onClick={leaveCall}>hangup</button>
-) : (
-  <button onClick={() => callUser(idToCall)}> call</button>
-)}
-</> */
-}

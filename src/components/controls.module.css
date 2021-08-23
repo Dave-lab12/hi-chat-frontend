@@ -52,3 +52,11 @@
   padding: 1em;
   margin-top: 20px;
 }
+.inputText {
+  font-weight: 600;
+  color: Green;
+}
+.inputTextDanger {
+  font-weight: 600;
+  color: red;
+}

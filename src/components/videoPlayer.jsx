@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../SocketContext";
+import { FiEdit3 } from "react-icons/fi";
 import ModalInvite from "./modalInvite";
 import styles from "./videoplayer.module.css";
 import { Modal, Button, Space } from "antd";
 import { FcInfo } from "react-icons/fc";
 import Notification from "./notification";
 
-function VideoPlayer({ children }) {
+function VideoPlayer({ children, setEditName }) {
   const [copied, setCopied] = useState(false);
   const {
     name,
@@ -18,6 +19,8 @@ function VideoPlayer({ children }) {
     me,
     stream,
   } = useContext(SocketContext);
+  const Name = localStorage.getItem("user name") || name;
+
   const showInvitation = () => {
     const { confirm } = Modal;
     confirm({
@@ -43,7 +46,11 @@ function VideoPlayer({ children }) {
         <header>
           <div className={styles.container}>
             <div className={styles.title}>
-              <h1>Hi, {name.toUpperCase() || "Name"}!</h1>
+              <h1>Hi, {Name.toUpperCase() || "Name"}!</h1>
+              <FiEdit3
+                className={styles.editNameIco}
+                onClick={() => setEditName(true)}
+              />
             </div>
             <button className={styles.invite} onClick={() => showInvitation()}>
               Invite Others

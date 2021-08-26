@@ -9,15 +9,8 @@ import Notification from "./notification";
 
 function VideoPlayer({ children, setEditName }) {
   const [copied, setCopied] = useState(false);
-  const {
-    name,
-    callAccepted,
-    myVideo,
-    userVideo,
-    callEnded,
-    me,
-    stream,
-  } = useContext(SocketContext);
+  const { name, callAccepted, myVideo, userVideo, callEnded, me, stream } =
+    useContext(SocketContext);
   const Name = localStorage.getItem("user name") || name;
 
   const showInvitation = () => {
@@ -45,7 +38,7 @@ function VideoPlayer({ children, setEditName }) {
         <header>
           <div className={styles.container}>
             <div className={styles.title}>
-              <h1>Hi, {Name.toUpperCase() || "Name"}!</h1>
+              <h1>Hi, {Name.toUpperCase() || "Guest"}!</h1>
               <FiEdit3
                 className={styles.editNameIco}
                 onClick={() => setEditName(true)}
@@ -73,7 +66,6 @@ function VideoPlayer({ children, setEditName }) {
             />
             {callAccepted && !callEnded && (
               <div className={styles.otherUsers}>
-                {/* <h1>{call.name || "Name"}</h1> */}
                 <video
                   className={`${styles.commonVideo}`}
                   playsInline

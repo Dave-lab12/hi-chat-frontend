@@ -6,7 +6,6 @@ const SocketContext = createContext();
 
 const socket = io("https://hi-chat-backend.herokuapp.com/");
 // const socket = io("localhost:5000");
-
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
@@ -21,7 +20,7 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: videoState.video, audio: videoState.audio })
+      .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
 
@@ -33,7 +32,7 @@ const ContextProvider = ({ children }) => {
     socket.on("callUser", ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-  }, [videoState]);
+  }, []);
 
   const answerCall = () => {
     setCallAccepted(true);

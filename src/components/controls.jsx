@@ -3,7 +3,7 @@ import { Button, Input } from "antd";
 import { SocketContext } from "../SocketContext";
 import {
   BiMicrophone,
-  // BiMicrophoneOff,
+  BiMicrophoneOff,
   BiVideo,
   BiVideoOff,
   BiPhoneCall,
@@ -20,24 +20,51 @@ function Controls() {
   } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
   console.log(videoState);
-  const handleClick = () => {
-    setVideoState({ ...videoState, video: !videoState.video });
+  const handleClick = (status) => {
+    if (status === "video") {
+      setVideoState({ ...videoState, video: !videoState.video });
+    }
+    if (status === "audio") {
+      setVideoState({ ...videoState, audio: !videoState.audio });
+    }
   };
-  console.log("hi");
   return (
     <div className={styles.controls}>
       <div className={styles.mic}>
-        <BiMicrophone className={styles.micIco} />
+        {videoState.audio ? (
+          <BiMicrophone
+            className={styles.micIco}
+            onClick={() => handleClick("audio")}
+          />
+        ) : (
+          <BiMicrophoneOff
+            className={styles.micIco}
+            onClick={() => handleClick("audio")}
+          />
+        )}
         <div className={styles.text}>
           <span>Microphone</span>
-          <p className={styles.inputText}>on</p>
+          <p
+            className={`${
+              videoState.audio ? styles.inputText : styles.inputTextDanger
+            }`}
+          >
+            {" "}
+            {videoState.audio ? "on" : "off"}
+          </p>
         </div>
       </div>
       <div className={styles.video}>
         {videoState.video ? (
-          <BiVideo className={styles.vidIco} onClick={() => handleClick()} />
+          <BiVideo
+            className={styles.vidIco}
+            onClick={() => handleClick("video")}
+          />
         ) : (
-          <BiVideoOff className={styles.vidIco} onClick={() => handleClick()} />
+          <BiVideoOff
+            className={styles.vidIco}
+            onClick={() => handleClick("video")}
+          />
         )}
         <div className={styles.text}>
           <span>Video</span>

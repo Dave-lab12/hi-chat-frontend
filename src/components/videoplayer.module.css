@@ -13,6 +13,7 @@
 }
 .title h1 {
   font-weight: 600;
+  font-size: 2em;
 }
 .invite {
   font-size: 1em;
@@ -32,7 +33,7 @@
 .player {
   border-radius: 20px;
   margin-bottom: 20px;
-  /* width: 90%; */
+  width: 90%;
 }
 .commonVideo {
   /* width: 90%; */
@@ -43,4 +44,9 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+@media screen and (max-width: 700px) {
+  .title h1 {
+    font-size: 1em;
+  }
 }

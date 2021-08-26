@@ -60,3 +60,9 @@
   font-weight: 600;
   color: red;
 }
+@media screen and (max-width: 900px) {
+  .controls {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+}

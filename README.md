@@ -1,6 +1,6 @@
 # Hi chat 📹
 
-This project was made via Reactjs and SocketIO the main functionality is video chat with other people realtime by sending video id 
+This project was made via Reactjs and SocketIO the main functionality is video chat with other people real time by sending video id 
 
 ## Running the project 
 
